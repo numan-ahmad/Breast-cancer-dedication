@@ -4,10 +4,8 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 
 exports.create_user = (req, res, next) => {
-  console.log('dsadsadas');
   User.find({ email: req.body.email })
     .exec().then(user => {
-      console.log('hello',);
       if (user.length >= 1) {
         return res.status(409).json({
           message: 'Mail exists try with differnet email'
@@ -15,16 +13,15 @@ exports.create_user = (req, res, next) => {
       } else {
         bcrypt.hash(req.body.password, 10, (err, hash) => {
           if (err) {
-            console.log('woerlrsdnajh', err);
             return res.status(500).json({
               error: err,
               message: "error"
             });
           } else {
-            console.log(req.body.email, 'hhhhhhh');
             const user = new User({
               _id: new mongoose.Types.ObjectId(),
               email: req.body.email,
+              userName: req.body.userName,
               password: hash
             })
             user.save().then(() => {
@@ -44,7 +41,6 @@ exports.create_user = (req, res, next) => {
 }
 
 exports.login_user = (req, res, next) => {
-  console.log(req.body, 'dsdasdasdas');
   User.find({ email: req.body.email })
     .exec()
     .then(user => {
@@ -68,6 +64,8 @@ exports.login_user = (req, res, next) => {
           })
           return res.status(200).json({
             message: "Auth successful",
+            userName: user[0].userName,
+            email: user[0].email,
             token: token
           })
         }

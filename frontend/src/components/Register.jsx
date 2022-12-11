@@ -13,6 +13,7 @@ export const Register = () => {
         e.preventDefault();
 
       const authentication = {
+        userName: name,
         email: email,
         password: pass,
       };

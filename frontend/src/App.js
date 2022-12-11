@@ -12,8 +12,10 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getToken = localStorage.getItem("accessToken");
-    if(getToken === null) {
+    const user = JSON.parse(
+      localStorage.getItem("user") || "{}"
+    );
+    if(user.token == null) {
       navigate("/login");
     } else {
       navigate("/");
