@@ -43,9 +43,10 @@ export const Home = () => {
           }
         >
           <ul>
-            <li>about</li>
+            <li>Home</li>
+            <li>About</li>
+            <li>Profile</li>
             <li>
-              {' '}
               <button className='logout' onClick={LogOut}>
                 Logout
               </button>
@@ -72,7 +73,7 @@ export const Home = () => {
         {selectedImage && (
           <div>
             <img
-              alt='not fount'
+              alt='uploaded photot'
               width={'250px'}
               src={URL.createObjectURL(selectedImage)}
             />
