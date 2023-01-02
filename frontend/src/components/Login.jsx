@@ -4,7 +4,7 @@ import Logo from '../logo.png';
 import axios from 'axios';
 
 export const Login = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('dasdasdasd');
   const [pass, setPass] = useState('');
 
   const handleSubmit = async (e) => {
@@ -37,7 +37,7 @@ export const Login = () => {
     <div className='autn-conatiner'>
       <div className='auth-form-container'>
         <div>
-          <h2>Breast Cancer Dedication</h2>
+          <h2>Breast Cancer Detection</h2>
           <img className='ribben-logo' src={Logo} alt='logo' />
         </div>
         <h2>Login</h2>

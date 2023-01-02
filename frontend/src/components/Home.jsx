@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import './home.css';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Navbar } from './Navbar';
 
 export const Home = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -26,72 +28,37 @@ export const Home = () => {
 
   return (
     <>
-      <nav className='main-nav'>
-        {/* 1st logo part  */}
-        <div className='nav-name'>
-          <h2>
-            <span>B</span>reast
-            <span> C</span>ancer
-            <span> D</span>edication
-          </h2>
-        </div>
-
-        {/* 2nd menu part  */}
-        <div
-          className={
-            showMediaIcons ? 'menu-link mobile-menu-link' : 'menu-link'
-          }
-        >
-          <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Profile</li>
-            <li>
-              <button className='logout' onClick={LogOut}>
-                Logout
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        {/* 3rd social media links */}
-        <div className='side-bar'>
-          {/* hamburget menu start  */}
-          <div className='hamburger-menu'>
-            <a href='#' onClick={() => setShowMediaIcons(!showMediaIcons)}>
-              <GiHamburgerMenu />
-            </a>
-          </div>
-        </div>
-      </nav>
-
+      <Navbar />
       {/* hero section  */}
-      <section className='hero-section'>
-        <p>Welcome to </p>
-        <h1>My Home Page</h1>
-        <p>Upload Image</p>
-        {selectedImage && (
-          <div>
-            <img
-              alt='uploaded photot'
-              width={'250px'}
-              src={URL.createObjectURL(selectedImage)}
-            />
-            <br />
-            <button onClick={() => setSelectedImage(null)}>Remove</button>
+      <div className='hero-section'>
+        <div className='auth-form-container section-1'>
+          <p>Upload Image</p>
+          {selectedImage && (
+            <div>
+              <img
+                alt='uploaded photot'
+                width={'250px'}
+                src={URL.createObjectURL(selectedImage)}
+              />
+              <br />
+              <button onClick={() => setSelectedImage(null)}>Remove</button>
+            </div>
+          )}
+          <br />
+          <br />
+          <div className='upload-buttons'>
+            <button onClick={handleClick}>Upload a file</button>
+            <button className='hsdjfsdj'>Predict Result</button>
           </div>
-        )}
-        <br />
-        <br />
-        <button onClick={handleClick}>Upload a file</button>
-        <input
-          type='file'
-          accept='image/*'
-          ref={hiddenFileInput}
-          onChange={handleChange}
-          style={{ display: 'none' }}
-        />
-      </section>
+          <input
+            type='file'
+            accept='image/*'
+            ref={hiddenFileInput}
+            onChange={handleChange}
+            style={{ display: 'none' }}
+          />
+        </div>
+      </div>
     </>
   );
 };

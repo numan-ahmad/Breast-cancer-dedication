@@ -7,7 +7,7 @@ const cors = require('cors');
 
 app.use(cors())
 
-mongoose.connect('mongodb://localhost:27017/restfull_api').then(() => {
+mongoose.connect('mongodb+srv://helloworld:helloworld@cluster1.aoxgo0g.mongodb.net/?retryWrites=true&w=majority').then(() => {
     console.log("connected to localhost")
 })
 app.use(morgan('dev'))

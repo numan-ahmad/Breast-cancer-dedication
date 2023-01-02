@@ -3,6 +3,8 @@ import './App.css';
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { Home } from "./components/Home"
+import { Contact } from "./components/Conatct";
+import { Profile } from "./components/Profile";
 import { Error } from "./components/Error"
 import { Routes, Route } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -26,6 +28,8 @@ function App() {
     <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/profile" element={<Profile/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
