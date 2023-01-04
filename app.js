@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,7 +9,6 @@ app.use(cors())
 mongoose.connect('mongodb+srv://helloworld:helloworld@cluster1.aoxgo0g.mongodb.net/?retryWrites=true&w=majority').then(() => {
     console.log("connected to localhost")
 })
-app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json())
 

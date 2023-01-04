@@ -7,7 +7,5 @@ router.post('/signup', userControler.create_user)
 
 router.post("/login", userControler.login_user)
 
-router.patch('/reset', userControler.user_reset)
-
 
 module.exports = router;
